@@ -1,19 +1,18 @@
 /**
  * tool-whitelist.const.ts - Varda 工具白名单常量
- * @package @vxture/bff-varda
+ * @package varda-server
  * @layer Application
  * @category Types
  *
  * @description
- *   surface.middleware.ts 使用这两个常量计算 CallerContext.allowedTools。
- *   与 agent-server/varda/src/tools/tool-whitelist.const.ts 镜像保持一致。
+ *   与 bff/varda-bff/src/tools/tool-whitelist.const.ts 镜像保持一致。
  *   两处各自独立定义，禁止跨包 import。
+ *   新增工具时必须同时更新两处（spec §11.3 检查清单）。
  *
  * @author AI-Generated
  * @date 2026-04-30
  */
 
-/** admin surface 允许的工具集（operator 专用，全平台数据范围） */
 export const ADMIN_TOOLS = [
   "tenant_search",
   "tenant_detail",
@@ -26,7 +25,6 @@ export const ADMIN_TOOLS = [
   "tenant_change_plan",
 ] as const;
 
-/** console surface 允许的工具集（tenant_user 专用，tenantId 强制隔离） */
 export const CONSOLE_TOOLS = [
   "my_subscription",
   "my_billing",
@@ -35,3 +33,6 @@ export const CONSOLE_TOOLS = [
   // 二期执行类工具（requiresConfirmation=true）
   "my_change_plan",
 ] as const;
+
+export type AdminToolId = (typeof ADMIN_TOOLS)[number];
+export type ConsoleToolId = (typeof CONSOLE_TOOLS)[number];

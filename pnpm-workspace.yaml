@@ -1,4 +1,5 @@
 packages:
   - varda
   - varda-bff
+  - varda-server
   - packages/*

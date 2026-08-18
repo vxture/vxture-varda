@@ -12,15 +12,17 @@ Varda——Vxture 平台智能助手,独立产品仓。
 | 目录 | 原址(vxture-platform) | 包名变更 |
 | --- | --- | --- |
 | `varda/` | `agent-studio/varda` | `@vxture/agent-studio-varda` → **`@vxture/varda`**(owner 判:前端就叫 varda) |
-| `varda-bff/` | `agent-server/varda` | `@vxture/agent-server-varda` → **`@vxture/varda-bff`** |
+| `varda-bff/` | `bff/varda-bff` | `@vxture/bff-varda` → **`@vxture/varda-bff`**(真正的 BFF,初版遗漏后补入) |
+| `varda-server/` | `agent-server/varda` | `@vxture/agent-server-varda` → **`@vxture/varda-server`**(agent 逻辑服务) |
 | `packages/model-runtime-client/` | `packages/ai/model-runtime-client` | 不变(Atlas API 客户端;Atlas 已重大重构,**需按新 Atlas 重写**) |
 | `deploy/` | `deploy/worker-02/` | worker-02 宿主部署(compose + env 样例 + 镜像源引导) |
+| `deploy/docker/Dockerfile.nestjs-prisma` | `deploy/docker/`(平台仓该文件仅 varda/旧模型平台消费,随迁) |
 | `.github/workflows/deploy.yml` | `.github/workflows/deploy-varda.yml` | tag `varda-*` 触发;**secrets 需在本仓重新配置**(ACR 凭据、worker-02 SSH) |
 | `docs/spec`、`docs/impl` | `docs/20-specs/001-varda`、`docs/40-implementation/packages/agents/varda` | — |
 
 ## ⚠ 已知破损(重构清单,按序)
 
-1. **varda-bff 依赖 7 个平台内部工作区包**,本仓不存在,`pnpm install` 即失败:
+1. **varda-server 依赖 7 个平台内部工作区包**(varda-bff 另依赖 core-auth/core-config),本仓不存在,`pnpm install` 即失败:
    `@vxture/core-auth`、`@vxture/core-config`、`@vxture/service-billing`、
    `@vxture/service-organization`、`@vxture/service-subscription`、
    `@vxture/service-ticket`(+ 本仓自带的 `model-runtime-client`)。

@@ -1,6 +1,6 @@
 /**
- * index.ts - varda-server 公共导出
- * @package varda-server
+ * index.ts - @vxture/bff-varda 公共导出
+ * @package @vxture/bff-varda
  * @layer Application
  *
  * @author AI-Generated
@@ -11,10 +11,10 @@ export type {
   CallerContext,
   VardaSurface,
   VardaUserType,
-} from "./context/caller-context.types";
+} from "./types/caller-context.types";
 export type {
-  ChatStreamEvent,
-  ChatInternalRequestDto,
-} from "./chat/chat.types";
-export type { VardaTool, VardaToolResult } from "./tools/tool.types";
+  ChatRequestDto,
+  VardaAuthUser,
+  VardaRequest,
+} from "./types/chat.types";
 export { ADMIN_TOOLS, CONSOLE_TOOLS } from "./tools/tool-whitelist.const";
