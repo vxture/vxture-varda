@@ -1,0 +1,7 @@
+{
+  "name": "vxture-varda",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Varda —— Vxture 平台智能助手(独立产品仓,自 vxture-platform 迁出,重构中)",
+  "packageManager": "pnpm@10.11.0"
+}

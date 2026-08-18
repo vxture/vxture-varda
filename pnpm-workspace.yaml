@@ -1,0 +1,4 @@
+packages:
+  - varda
+  - varda-bff
+  - packages/*
